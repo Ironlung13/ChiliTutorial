@@ -60,6 +60,7 @@ public:
 	void DrawRectDim(int x0, int y0, int width, int height, Color c);
 	void DrawRectPadded(int x0, int y0, int width, int height, Color c);
 	void DrawHollowRect(int x0, int y0, int width, int height, Color c);
+	void DrawCircle(int x, int y, int r, Color c);
 	void DrawGameOver(int x, int y);
 	~Graphics();
 private:

@@ -352,6 +352,27 @@ void Graphics::DrawHollowRect(int x0, int y0, int width, int height, Color c)
 	}
 }
 
+void Graphics::DrawCircle(int x, int y, int r, Color c)
+{
+	const int R2 = r * r;
+	for (int X = x - r; X <= x + r; ++x)
+	{
+		for (int Y = y - r; Y <= y + r; ++y)
+		{
+			if ((X*X) + (Y * Y) <= R2)
+			{
+				if (X >= 0 && 
+					X <= ScreenWidth - 1 && 
+					Y >= 0 && 
+					Y <= ScreenHeight - 1)
+				{
+					PutPixel(X, Y, c);
+				}
+			}
+		}
+	}
+}
+
 void Graphics::DrawGameOver(int x, int y)
 {
 	PutPixel(49 + x, 0 + y, 0, 146, 14);
