@@ -20,6 +20,8 @@ public:
 	bool EatsItself();
 	Location& GetNextHeadLocation();
 
+	void Reset();
+
 private:
 	
 		class Segment
@@ -41,7 +43,7 @@ private:
 	static constexpr int MaxSegments = 100;
 	Segment SegmentNumber[MaxSegments];
 	int nSegments = 1;
-	Location delta_loc = { 1, 0 };
+	Location delta_loc;
 	Location prev_delta_loc = delta_loc;
 };
 

@@ -90,5 +90,11 @@ void Game::ComposeFrame()
 	if (GameOver)
 	{
 		gfx.DrawGameOver(Graphics::ScreenWidth / 2 - 42, Graphics::ScreenHeight / 2 - 32);
+		if (wnd.kbd.KeyIsPressed(VK_SPACE))
+		{
+			snake.Reset();
+			food.Jump({ Food_x(rng),Food_y(rng) });
+			GameOver = false;
+		}
 	}
 }

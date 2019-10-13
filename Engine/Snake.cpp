@@ -5,6 +5,8 @@ void Snake::InitHead()
 {
 	SegmentNumber[0].SetLocation({ 10,10 });
 	SegmentNumber[0].SetColor({ 255, 120, 0 });
+	delta_loc = { 1, 0 };
+	prev_delta_loc = delta_loc;
 }
 
 void Snake::InitSegment()
@@ -123,6 +125,12 @@ bool Snake::EatsItself()
 Location & Snake::GetNextHeadLocation() 
 {
 	return SegmentNumber[0].GetLocation().Add(delta_loc);
+}
+
+void Snake::Reset()
+{
+	nSegments = 1;
+	InitHead();
 }
 
 

@@ -34,8 +34,8 @@ bool Board::isOutsideBoard(Location loc)
 {
 	if (loc.x < 0 ||
 		loc.y < 0 ||
-		loc.x > width ||
-		loc.y > height)
+		loc.x >= width ||
+		loc.y >= height)
 	{
 		return true;
 	}

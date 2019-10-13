@@ -352,26 +352,24 @@ void Graphics::DrawHollowRect(int x0, int y0, int width, int height, Color c)
 	}
 }
 
-void Graphics::DrawCircle(int x, int y, int r, Color c)
+void Graphics::DrawCircle(int x_center, int y_center, int radius, Color c)
 {
-	const int R2 = r * r;
-	for (int X = x - r; X <= x + r; ++x)
+	const int r_sqrd = radius * radius;
+	for (int x = x_center - radius; x <= x_center + radius; ++x)
 	{
-		for (int Y = y - r; Y <= y + r; ++y)
+		for (int y = y_center - radius; y <= y_center + radius; ++y)
 		{
-			if ((X*X) + (Y * Y) <= R2)
+			const int x_diff = x_center - x;
+			const int y_diff = y_center - y;
+			if (x_diff*x_diff + y_diff * y_diff <= r_sqrd)
 			{
-				if (X >= 0 && 
-					X <= ScreenWidth - 1 && 
-					Y >= 0 && 
-					Y <= ScreenHeight - 1)
-				{
-					PutPixel(X, Y, c);
-				}
+				PutPixel(x, y, c);
 			}
 		}
 	}
 }
+
+
 
 void Graphics::DrawGameOver(int x, int y)
 {
