@@ -47,7 +47,6 @@ void Game::UpdateModel()
 {
 	if (!GameOver)
 	{
-		++counter;
 
 		snake.CheckForInput(wnd.kbd);
 
@@ -56,13 +55,12 @@ void Game::UpdateModel()
 		{
 			food.Jump({ Food_x(rng),Food_y(rng) });
 		}
-		if (counter >= Timer)
+		if (Timer.time_to_move(snake.GetSpeed()))
 		{
 			GameOver = CheckForGameOver(snake, brd);
 			if (!GameOver)
 			{
 				snake.Move();
-				counter = 0;
 			}
 		}
 	}

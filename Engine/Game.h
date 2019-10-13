@@ -26,6 +26,7 @@
 #include "Board.h"
 #include "Snake.h"
 #include "Food.h"
+#include "FrameTimer.h"
 #include <random>
 
 class Game
@@ -50,13 +51,12 @@ private:
 	Board brd;
 	Snake snake;
 	Food food;
+	FrameTimer Timer;
 	std::random_device rd;
 	std::mt19937 rng;
 	std::uniform_int_distribution<int> ColorDist;
 	std::uniform_int_distribution<int> Food_x;
 	std::uniform_int_distribution<int> Food_y;
-	static constexpr int Timer = 20;
-	int counter = 0;
 	bool GameOver = false;
 	/********************************/
 };

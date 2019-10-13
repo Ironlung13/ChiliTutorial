@@ -19,6 +19,7 @@ public:
 	void DrawToBoard(Board& brd);
 	bool EatsItself();
 	Location& GetNextHeadLocation();
+	float GetSpeed();
 
 	void Reset();
 
@@ -45,6 +46,8 @@ private:
 	int nSegments = 1;
 	Location delta_loc;
 	Location prev_delta_loc = delta_loc;
+	static constexpr float SpeedMin = 0.2f;
+	static constexpr float SpeedMax = 0.06f;
 };
 
 

@@ -122,9 +122,19 @@ bool Snake::EatsItself()
 	return false;
 }
 
-Location & Snake::GetNextHeadLocation() 
+Location& Snake::GetNextHeadLocation() 
 {
 	return SegmentNumber[0].GetLocation().Add(delta_loc);
+}
+
+float Snake::GetSpeed()
+{
+	if (SpeedMin - ((nSegments - 1)*0.02f) > SpeedMax)
+	{
+		return SpeedMin - ((nSegments - 1) * 0.02f);
+	}
+	else
+		return SpeedMax;
 }
 
 void Snake::Reset()
